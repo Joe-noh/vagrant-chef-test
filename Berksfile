@@ -1,3 +1,12 @@
 source 'https://api.berkshelf.com'
 
+cookbook 'build-essential'
+cookbook 'database'
 cookbook 'git'
+cookbook 'imagemagick'
+cookbook 'memcached'
+cookbook 'nginx'
+cookbook 'nodejs'
+cookbook 'rbenv', git: 'git://github.com/fnichol/chef-rbenv.git', ref: 'v0.7.2'
+cookbook 'ruby_build'
+cookbook 'xml'

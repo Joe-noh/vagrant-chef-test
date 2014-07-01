@@ -87,7 +87,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # some recipes and/or roles.
   #
   config.vm.provision "chef_solo" do |chef|
-    chef.cookbooks_path = ["./cookbooks"]
+    chef.cookbooks_path = ["./cookbooks", "./site-cookbooks"]
 
     chef.add_recipe 'build-essential'
     chef.add_recipe 'database'
@@ -99,6 +99,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.add_recipe 'ruby_build'
     chef.add_recipe 'rbenv::system'
     chef.add_recipe 'xml'
+
+    chef.add_recipe 'rails_cookbook::ops_user'
+    chef.add_recipe 'rails_cookbook::keys'
+    chef.add_recipe 'rails_cookbook::sqlite3_dev'
+    chef.add_recipe 'rails_cookbook::nginx_setting'
 
     chef.json = {
       'rbenv' => {
